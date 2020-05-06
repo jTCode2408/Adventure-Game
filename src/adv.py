@@ -60,18 +60,20 @@ print(player1)
 #
 # If the user enters "q", quit the game.
 while True:
-    selection = input('where would you like to go?: ')
-    print('user selected' + selection)
-    if selection == 'q':
+    nav = input('where would you like to go?: ')
+    print('user selected' + nav)
+    if nav == 'q':
         print('thanks for playing!')
         break
-try:
-    selction = input(selection)
-    if selection == 'n' or 's' or 'e' or 'w': #if entry n,s,e,w, move
-        player1.player_move(selection)
-    elif (selection == 0): #if nno entry
-        print('enter a command to move player')
-except TypeError:
+
+    try:
+        if nav == 'n':
+            if player1.current_room.n_to != None:
+                player1.current_room = player1.current_room.n_to
+                print(f'MOVED, {player1.current_room.n_to} ')
+            else:
+                print('No room here')
+    except TypeError:
         print('please enter valid directional command')
     #if no room
     #if vakid entry, go to direction entry
