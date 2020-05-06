@@ -82,7 +82,7 @@ while True:
                 print(f'MOVED, {player1.current_room} ')
             else:
                 print('no room to the west')
-        elif nav == int: #if int
+        else: #other values enterd
             print('naigation must be [n], [s], [e], or [w]')
             
     except TypeError:
