@@ -5,14 +5,6 @@ from player import Player
 #Valid commands are n, s, e and w which move the player North, South, East or West
 #The parser should print an error if the player tries to move where there is no room.
 #REPL. will go somewhere based on user input index in directions list from rooms
-selection = input('go somehwere:')
-print('user selected' + selection) 
-if selection != 'n' or 's' or 'e' or 'w': #if entry  not n,s,e,w, error
-    print('enter valid direction command!')
-elif (selection == None): #if nno entry
-    print('enter a command')
-    #if no room
-    #if vakid entry, go to direction entry
 
 
 
@@ -67,3 +59,11 @@ print(player1)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+selection = input('go somehwere:')
+print('user selected' + selection) 
+if selection != 'n' or 's' or 'e' or 'w': #if entry  not n,s,e,w, error
+    print('enter valid direction command!')
+elif (selection == None): #if nno entry
+    print('enter a command')
+    #if no room
+    #if vakid entry, go to direction entry
