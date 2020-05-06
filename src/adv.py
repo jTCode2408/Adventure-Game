@@ -1,7 +1,17 @@
 from room import Room
 
 # Declare all the rooms
-
+#REPL 
+# After each move, the REPL should print the name and description of the player's current room
+#Valid commands are n, s, e and w which move the player North, South, East or West
+#The parser should print an error if the player tries to move where there is no room.
+#REPL. will go somewhere based on user input index in directions list from rooms
+selection = input('go somehwer:')
+print('user selected' + selection)
+#print room.direction[(int(selection)]
+#ERROR: try/exwcept block
+##try: selection =int(selection) -casting. so that entered input wont break casting
+##if selection >=len(room.directions): (print/9invalid dir)
 room = {
     'outside':  Room("Outside Cave Entrance",
                      "North of you, the cave mount beckons"),
@@ -38,6 +48,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+#player object needs: name, location,
+
 
 # Write a loop that:
 #
