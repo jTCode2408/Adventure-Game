@@ -50,30 +50,41 @@ player1 = Player('jt', room['outside'])
 print(player1)
 
 # Write a loop that:
-#
-# * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
-# * Waits for user input and decides what to do.
-#
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
 while True:
-    nav = input('where would you like to go?: ')
-    print('user selected' + nav)
-    if nav == 'q':
+    nav = input('where would you like to go?: ') # * Waits for user input and decides what to do.
+    if nav == 'q': # If the user enters "q", quit the game.
         print('thanks for playing!')
         break
 
-    try:
-        if nav == 'n':
-            if player1.current_room.n_to != None:
-                player1.current_room = player1.current_room.n_to
-                print(f'MOVED, {player1.current_room.n_to} ')
+    try: 
+        if nav == 'n': 
+            if player1.current_room.n_to != None: # If the user enters a cardinal direction, attempt to move to the room there.
+                player1.current_room = player1.current_room.n_to 
+                print(f'MOVED, {player1.current_room} ') # * Prints the current room name
             else:
-                print('No room here')
+                print('No room north') # Print an error message if the movement isn't allowed.
+        elif nav == 's':
+            if player1.current_room.s_to != None:
+                player1.current_room = player1.current_room.s_to
+                print(f'MOVED, {player1.current_room} ')
+            else:
+                print('No room south')    #if no room
+        elif nav == 'e':
+            if player1.current_room.e_to != None:
+                player1.current_room = player1.current_room.e_to
+                print(f'MOVED, {player1.current_room} ')
+            else:
+                print('no room to the east') 
+        elif nav == 'w':
+            if player1.current_room.w_to != None:
+                player1.current_room = player1.current_room.w_to
+                print(f'MOVED, {player1.current_room} ')
+            else:
+                print('no room to the west')
+        elif nav == int: #if int
+            print('naigation must be [n], [s], [e], or [w]')
+            
     except TypeError:
         print('please enter valid directional command')
-    #if no room
-    #if vakid entry, go to direction entry
+        #if invakid entry,
