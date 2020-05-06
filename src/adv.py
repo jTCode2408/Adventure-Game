@@ -59,11 +59,19 @@ print(player1)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-selection = input('where would you like to go?: ')
-print('user selected' +  selection) 
-if selection != 'n' or 's' or 'e' or 'w': #if entry  not n,s,e,w, error
-    print('enter valid direction command!')
-elif (selection == None): #if nno entry
-    print('enter a command')
+while True:
+    selection = input('where would you like to go?: ')
+    print('user selected' + selection)
+    if selection == 'q':
+        print('thanks for playing!')
+        break
+try:
+    selction = input(selection)
+    if selection == 'n' or 's' or 'e' or 'w': #if entry n,s,e,w, move
+        player1.player_move(selection)
+    elif (selection == 0): #if nno entry
+        print('enter a command to move player')
+except TypeError:
+        print('please enter valid directional command')
     #if no room
     #if vakid entry, go to direction entry
