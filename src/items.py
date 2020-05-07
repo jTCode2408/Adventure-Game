@@ -13,18 +13,18 @@ Add an on_drop method to Item. Implement it similar to on_take.
 Implement support for the verb drop followed by an Item name. This is the opposite of get/take.
 '''
 class Item:
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
+    def __init__(self, item_name, item_description):
+        self.item_name = item_name
+        self.description = item_description
 
     def __str__(self):
-        return f'ITEM, {self.name} {self.description}'
+        return f'ITEM, {self.item_name} {self.item_description}'
 
     def on_take(self):
-        print(f'You have picked up {self.name}')
+        print(f'You have picked up {self.item_name}')
 
     def on_drop(self):
-        print(f'You have picked up {self.name}')
+        print(f'You have picked up {self.item_name}')
 
 
 #myItem = Item(['laptop', 'vivobook' 'tv', 'sony', 'ipod', 'apple'])

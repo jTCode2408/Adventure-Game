@@ -57,7 +57,7 @@ items = {
 
 # Make a new player object that is currently in the 'outside' room.
 #player object needs: name, location,
-player1 = Player('jt', room['outside'],[])
+player1 = Player('jt', room['outside'],items)
 print(player1)
 
 # Write a loop that:
