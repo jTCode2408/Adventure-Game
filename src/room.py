@@ -12,7 +12,6 @@ class Room():
         self.name = name
         self.description = description
         self.items = items
-
         self.n_to = None #will be dif rooms dep on user location. none for now
         self.e_to = None
         self.s_to = None
@@ -20,5 +19,5 @@ class Room():
 
     
     def __str__(self):
-        return f'room: {self.name}, descript: {self.description} items: {self.items}'
+        return f'RoomName: {self.name}, RoomDescript: {self.description} ItemsInRoom: {self.items}'
 

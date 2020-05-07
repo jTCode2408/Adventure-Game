@@ -18,7 +18,7 @@ class Item:
         self.description = item_description
 
     def __str__(self):
-        return f'ITEM, {self.item_name} {self.item_description}'
+        return f'ItemName{self.item_name} ItemDescipt{self.item_description}'
 
     def on_take(self):
         print(f'You have picked up {self.item_name}')
