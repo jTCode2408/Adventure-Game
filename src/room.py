@@ -11,7 +11,7 @@ class Room():
     def __init__(self, name,description, items):
         self.name = name
         self.description = description
-        self.items = [items]
+        self.items = items
 
         self.n_to = None #will be dif rooms dep on user location. none for now
         self.e_to = None

@@ -1,6 +1,7 @@
 from room import Room
 from player import Player
 from items import Item
+import sys
 #REPL 
 # After each move, the REPL should print the name and description of the player's current room
 #Valid commands are n, s, e and w which move the player North, South, East or West
@@ -12,21 +13,21 @@ from items import Item
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons", []),
+                     "North of you, the cave mount beckons", ['sword']),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""", ['lantern']),
+passages run north and east.""", ['torch']),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm.""", ['rope', 'sword']),
+the distance, but there is no way across the chasm.""", ['rope']),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air.""", ['shovel', 'backpack']),
+to north. The smell of gold permeates the air.""", ['shovel']),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""", []),
+earlier adventurers. The only exit is to the south.""", ['none']),
 }
 
 
@@ -43,36 +44,36 @@ room['treasure'].s_to = room['narrow']
 
 
 #ITEMS 
-items = {
-    'lantern': Item('lantern', 'light source'),
-    'rope': Item('rope', 'transportation'),
-    'sword': Item('sword', 'weapon'),
-    'shovel': Item('shovel', 'for digging'),
-    'backpack': Item('backpack', 'storage'),
-  
-}
+
 #
 # Main
-#
+##ADD ITEMS: attribute = room.items
+#hasattr(check if has attribute)
+#getattr(if has attribute, get it)
 
 # Make a new player object that is currently in the 'outside' room.
 #player object needs: name, location,
-player1 = Player('jt', room['outside'],items)
+player1 = Player('jt', room['outside'], []) 
 print(player1)
 
 # Write a loop that:
 # * Prints the current description (the textwrap module might be useful here).
 while True:
-    nav = input('where would you like to go?: ') # * Waits for user input and decides what to do.
+    nav = input('where would you like to go?: ')  # * Waits for user input and decides what to do.
+
     if nav == 'q': # If the user enters "q", quit the game.
         print('thanks for playing!')
         break
 
-    try: 
+    try:
+        if nav in ['g', 'get', 'take' ]:
+            player1.inventory.append(room.items)
+            print(f' Added to inventory: {room.items}')
+            print(f' NEW INVENTORY: {player1.inventory}')
         if nav == 'n': 
             if player1.current_room.n_to != None: # If the user enters a cardinal direction, attempt to move to the room there.
                 player1.current_room = player1.current_room.n_to 
-                print(f'MOVED, {player1.current_room} ') # * Prints the current room name
+                print(f'MOVED, {player1.current_room}')  # * Prints the current room name
             else:
                 print('No room north') # Print an error message if the movement isn't allowed.
         elif nav == 's':
@@ -95,7 +96,9 @@ while True:
                 print('no room to the west')
         else: #other values enterd
             print('naigation must be [n], [s], [e], or [w]')
+            #get item
+        
             
     except TypeError:
-        print('please enter valid directional command')
+        print('please enter valid  command')
         #if invakid entry,
