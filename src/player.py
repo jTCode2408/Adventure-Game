@@ -3,9 +3,10 @@
 #need name, current room, movement method?
 ##method needs to: check input, move player based on inpuit, print room moved to
 class Player():
-    def __init__(self, name, current_room):
+    def __init__(self, name, current_room, inventory):
         self.name = name
         self.current_room = current_room
+        self.inevntory =[]
         
    
     def __str__(self):

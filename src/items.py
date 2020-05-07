@@ -20,8 +20,12 @@ class Item:
     def __str__(self):
         return f'ITEM, {self.name} {self.description}'
 
-    def on_take():
+    def on_take(self):
+        print(f'You have picked up {self.name}')
+
+    def on_drop(self):
+        print(f'You have picked up {self.name}')
 
 
-myItem = Item('laptop', 'vivobook')
-print(myItem)
+#myItem = Item(['laptop', 'vivobook' 'tv', 'sony', 'ipod', 'apple'])
+#print(myItem)
