@@ -6,9 +6,9 @@
 ## User Guide:
 * Clone/ download repo for local use
 
-* Valid directional commands: ['n', 'w', 'e', 's']
+* Valid directional commands: ['n', 'w', 'e', 's', 'q'(quit)]
 
-* Rooms hold different items to pick up by using command 'get'
+* Rooms hold different items to pick up by using command 'get' or 'g'
 
 * Run in Python parser or local command line
 
