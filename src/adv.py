@@ -2,14 +2,6 @@ from room import Room
 from player import Player
 from items import Item
 
-#REPL 
-# After each move, the REPL should print the name and description of the player's current room
-#Valid commands are n, s, e and w which move the player North, South, East or West
-#The parser should print an error if the player tries to move where there is no room.
-#REPL. will go somewhere based on user input index in directions list from rooms
-
-
-
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -52,45 +44,34 @@ items = {
     'food': Item('food', 'something to eat'),
   
 }
-#
-# Main
-##ADD ITEMS: attribute = room.items
-#hasattr(check if has attribute)
-#getattr(if has attribute, get it)
 
-# Make a new player object that is currently in the 'outside' room.
-#player object needs: name, location,
-player1 = Player('jt', room['outside'],items) 
+player1 = Player('jt', room['outside']) 
 print(player1)
 
-# Write a loop that:
-# * Prints the current description (the textwrap module might be useful here).
 while True:
-    nav = input('where would you like to go?: ')  # * Waits for user input and decides what to do.
-    #bag = input('Add items to inv?: ')
-    if nav == 'q': # If the user enters "q", quit the game.
+    nav = input('where would you like to go?: ')  
+    if nav == 'q':
         print('thanks for playing!')
         break
 
     try:
         if nav == 'g' or 'get':
-        #if bag in ['g', 'get', 'take' ]:
             player1.add_item(room.items)
-            print(f' NEW INVENTORY: {player1.inventory}')
+            
         else:
                 print('Keep going then!')
         if nav == 'n': 
-            if player1.current_room.n_to != None: # If the user enters a cardinal direction, attempt to move to the room there.
+            if player1.current_room.n_to != None: 
                 player1.current_room = player1.current_room.n_to 
-                print(f'MOVED, {player1}')  # * Prints the current room name
+                print(f'MOVED, {player1}')  
             else:
-                print('No room north') # Print an error message if the movement isn't allowed.
+                print('No room north') 
         elif nav == 's':
             if player1.current_room.s_to != None:
                 player1.current_room = player1.current_room.s_to
                 print(f'MOVED, {player1} ')
             else:
-                print('No room south')    #if no room
+                print('No room south')  
         elif nav == 'e':
             if player1.current_room.e_to != None:
                 player1.current_room = player1.current_room.e_to
@@ -100,14 +81,14 @@ while True:
         elif nav == 'w':
             if player1.current_room.w_to != None:
                 player1.current_room = player1.current_room.w_to
-                print(f'MOVED, {player1} ')
+                print(f'MOVED TO:, {player1} ')
             else:
                 print('no room to the west')
         else: #other values enterd
-            print('naigation must be [n], [s], [e], or [w]')
-            #get item
+            print('navigation must be [n], [s], [e], or [w]')
+          
         
             
     except TypeError:
-        print('please enter valid  command')
-        #if invakid entry,
+        print('please enter valid command')
+     
