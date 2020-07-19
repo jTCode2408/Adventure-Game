@@ -1,7 +1,7 @@
 # Find Your Way Back - Adventure Game
 
 * This is an 'adventure game' that allows user to travel room to room by entering commands in terminal. 
-- [What's an Adventure Game? ![vid](https://youtu.be/WaZccFqJUT8)]
+
 
 ## User Guide:
 * Clone/ download repo for local use
