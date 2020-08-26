@@ -1,6 +1,7 @@
 # Find Your Way Back - Adventure Game
 
 * This is an 'adventure game' that allows user to travel room to room by entering commands in terminal. 
+* Built to learn Python basics
 
 
 ## User Guide
